@@ -1,0 +1,60 @@
+1️⃣ Maximum Average Subarray I
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+       double sum=0;
+       for(int i=0;i<k;i++){
+        sum+=nums[i];
+       } 
+
+       
+       double window=sum;
+       for(int i=k;i<nums.size();i++){
+        window+=nums[i]-nums[i-k];
+        sum=max(window,sum);
+       }
+       return sum/k;
+
+
+    }
+};
+
+1️⃣1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        int sum=0;
+        for(int i=0;i<k;i++){
+            sum+=arr[i];
+        }
+        int window=sum;
+        int count=0;
+        if((window/k)>=threshold){
+            count++;
+        }
+        for(int i=k;i<arr.size();i++){
+            window+=arr[i]-arr[i-k];
+            if((window/k)>=threshold){
+                count++;
+            }
+        }
+        return count;
+    }
+};
+1️⃣ Maximum Sum of a Subarray with K Elements
+class Solution {
+  public:
+    int maxSubarraySum(vector<int>& arr, int k) {
+        int max_sum=0;
+        for(int i=0;i<k;i++){
+            max_sum+=arr[i];
+        }
+        int window_sum=max_sum;
+        for(int i=k;i<arr.size();i++){
+            window_sum+=arr[i]-arr[i-k];
+            max_sum=max(max_sum,window_sum);
+        }
+        return max_sum;
+        
+    }
+};
