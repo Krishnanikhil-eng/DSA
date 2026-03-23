@@ -1,4 +1,4 @@
-1️⃣ Maximum Average Subarray I
+1️⃣ Maximum Average Subarray I 
 class Solution {
 public:
     double findMaxAverage(vector<int>& nums, int k) {
